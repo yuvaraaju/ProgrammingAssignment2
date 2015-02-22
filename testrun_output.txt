@@ -1,0 +1,44 @@
+> a <- matrix(c(10,20,30,40),2,2)
+> a
+     [,1] [,2]
+[1,]   10   30
+[2,]   20   40
+>
+
+> b <- makeCacheMatrix(a)
+> b
+$set
+function (y) 
+{
+    x <<- y
+    inv <<- NULL
+}
+<environment: 0x0000000010c3be58>
+
+$get
+function () 
+x
+<environment: 0x0000000010c3be58>
+
+$setinv
+function (inverse) 
+inv <<- inverse
+<environment: 0x0000000010c3be58>
+
+$getinv
+function () 
+inv
+<environment: 0x0000000010c3be58>
+
+> 
+> cacheSolve(b)
+     [,1]  [,2]
+[1,] -0.2  0.15
+[2,]  0.1 -0.05
+> 
+> cacheSolve(b)
+getting inverse of given matrix from cache
+     [,1]  [,2]
+[1,] -0.2  0.15
+[2,]  0.1 -0.05
+> 
